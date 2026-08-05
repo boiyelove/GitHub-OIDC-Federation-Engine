@@ -41,6 +41,14 @@ tests cannot claim a live cloud change occurred.
 
 The upper boundary names the principal services and technologies used by this repository. The lower boundary shows the implemented control flow: desired state is validated, provider action remains an explicit integration gate, and sanitized evidence is retained for review and deterministic replay.
 
+## Best complementary diagram
+
+**Recommended view: GitHub-to-Azure OIDC token-exchange sequence.** A sequence view is the strongest complement because it exposes runtime order, trust hand-offs, fail-closed decisions, and the evidence returned to the caller.
+
+![Icon-based github-to-azure oidc token-exchange sequence for GitHub-OIDC-Federation-Engine](docs/operational-view.svg)
+
+The view follows **Start trusted workflow → Issue GitHub OIDC token → Exchange federated claim → Call scoped Azure API**. Use it during design reviews, operational walkthroughs, and failure-mode discussions; use the logical architecture above when the question is which technologies integrate.
+
 ## Quickstart
 
 Requirements: Python 3.11+ and Git. No Azure credentials are required.
